@@ -1,0 +1,155 @@
+@keyframes opacity-appear {
+    0%{ 
+        opacity:0;
+        transform:scale(0.9);
+    }
+    100%{ 
+        opacity:1;
+        transform:scale(1);
+    }
+}
+@keyframes slide-left {
+    0%{ 
+        opacity:0;
+        right: 100%;
+        
+    }
+    100%{ 
+        opacity:1;
+        right: -40%;
+    }
+}
+
+@keyframes stop-action {
+    0%, 100%{  transform: rotate(0deg);}
+    10%{  transform: rotate(10deg);}
+    20%{  transform: rotate(20deg);}
+    30%{  transform: rotate(-10deg);}
+    40%{  transform: rotate(20deg);}
+    50%{  transform: rotate(-20deg);}
+    60%{  transform: rotate(-10deg);}
+    70%{  transform: rotate(20deg);}
+    80%{  transform: rotate(10deg);}
+    90%{  transform: rotate(-10deg);}
+}
+
+
+// CANVAS POSITION & ANIMATION
+
+
+#canvas{
+    img{
+        transform: translate(-50%, -50%);
+        transform-origin: 0 0;
+        &.salad{
+            left:50%;
+            top: 50%;
+            max-width:100%;
+            max-height:100%;
+            z-index: 5;
+        }
+        &.beetroot{
+
+            &.i-0{
+                top: 25%;
+                transform: scaleX(-1);
+                left: 34%;
+            }
+            &.i-1{
+                top: 70%;
+                left:45%;
+            }
+            &.i-2{
+                top: 82%;
+                left: 40%;
+                transform: scaleX(-1);
+            }
+        }
+        &.carrot{
+
+            &.i-0{
+                top: 10%;
+                left: 34%;
+            }
+            &.i-1{
+                top: 50%;
+                left: 10%;
+            }
+            &.i-2{
+                top: 75%;
+                left: 5%;
+            }
+        }
+        &.cucumber{
+
+            &.i-0{
+                top: 45%;
+                left: 60%;
+            }
+            &.i-1{
+                top: 55%;
+                left: 60%;
+            }
+            &.i-2{
+                top: 80%;
+                left: 20%;
+            }
+        }
+        &.orange{
+
+            &.i-0{
+                top: 35%;
+                left: 68%;
+            }
+            &.i-1{
+                top: 65%;
+                left: 65%;
+            }
+            &.i-2{
+                top: 90%;
+                left: 60%;
+            }
+        }
+        &.onion{
+
+            &.i-0{
+                top: 45%;
+                left: 80%;
+            }
+            &.i-1{
+                top: 75%;
+                left: 55%;
+            }
+            &.i-2{
+                top: 63%;
+                left: 15%;
+            }
+        }
+        &.lemon{
+
+            &.i-0{
+                top: 15%;
+                left: 5%;
+            }
+            &.i-1{
+                top: 63%;
+                left: -5%;
+            }
+            &.i-2{
+                top: 90%;
+                left: 10%;
+            }
+        }
+        &:not(.salad){
+            max-width:14%;
+            height:auto;
+        }
+        &:not(.salad, .beetroot){
+            animation: stop-action 4s infinite step-end;
+            &.carrot{animation-delay: .25s;}
+            &.lemon{animation-delay: .15s;}
+            &.onion{animation-delay: .35s;}
+            &.cucumber{animation-delay: .45s;}
+        }
+    }
+}

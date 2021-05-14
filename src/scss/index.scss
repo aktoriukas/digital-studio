@@ -1,0 +1,350 @@
+@import "../fonts/stylesheet.css";
+@import "./animation.scss";
+
+// VARIABLES
+$lg-width: 1400px;
+$x-lg-width: 1600px;
+
+$light-green: #F1F7EB;
+$green: #A2DE96;
+$dark-green: #6FC1AB;
+$light-red: #F7947A;
+$white: #ffffff;
+$black: #000000;
+
+// DEFAULT
+
+
+*{font-family: "Poppins";}
+
+ul{
+    list-style: none;
+    margin: 0;
+    li{
+        margin: 0;
+    }
+}
+p{
+    font-weight: 200;
+    font-size: 1.1rem;
+}
+
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn-green{
+    background-color:$green;
+    border: none;
+    padding: 1em 1.25rem;
+    text-transform: uppercase;
+    font-size: .8rem;
+    cursor: pointer;
+    transition: background-color .25s ease-out;
+    &:hover{ 
+        background-color:$light-red
+    }
+}
+
+// TYPOGRAPHY
+
+h1{
+    font-size: 3.3rem;
+}
+h2{
+    font-weight: 200;
+    font-size: 2.3rem;
+}
+
+h4{
+    font-size: 1.1rem;
+    font-weight: 400;
+    transition: all .5s ease-in-out;
+}
+
+body{
+    overflow: hidden;
+
+    // HEADER
+
+    #header{
+
+        .header-container{
+
+            padding: 1rem 0;
+            display:flex;
+            max-width: $lg-width;
+            margin: auto;
+    
+            .logo, .user-options{
+                flex: 20%;
+                display: flex;
+                max-width:20%
+            }
+
+            .logo{
+                a{
+                    width:100%;
+                    margin: 0;
+                    display: flex;
+                    justify-content:center;
+                    img{
+                        width:100%;
+                        max-width: 8rem;
+                        margin: 0;
+                    }
+                }
+            }
+    
+            .menu{
+                flex: 60%;
+                max-width:60%;
+                display: flex;
+    
+                .menu-item{
+                    flex: 25%;
+                    max-width: 25%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    h4{
+                        text-align: center;
+                        margin: auto;
+                        &:hover{ color: $light-red}
+                    }
+
+                    .dropdown{
+                        position: relative;
+                        height:100%;
+                        display: flex;
+                        justify-content:center;
+                        flex-direction:column;
+                        cursor: pointer;
+                        &:hover{
+                            .sub-menu{
+                                display:initial;
+                            }
+                            h4{
+                                color: $light-red;
+                            }
+                        }
+                        .sub-menu{
+                            display: none;
+                            position: absolute;
+                            width: 100%;
+                            background: $white;
+                            border-radius: .25rem;
+                            padding: 1rem 2rem;
+                            box-shadow: 0 0 4px 1px rgba($black, 0.3);
+                            top: 100%;
+                            z-index: 5;
+                            a{
+                                font-weight: 400;
+                                font-size: .8rem;
+                                &:hover{
+                                    color: $light-red;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .user-options{
+                a{
+                    flex: 50%;
+                    max-width: 50%;
+                    display: flex;
+                    justify-content:center;
+                    h4{
+                        margin: auto;
+                        &:hover{ color: $light-red}
+                    }
+                }
+                .custom-btn{
+                    h4{
+                        font-size: .6rem;
+                        text-transform: uppercase;
+                        border: 1px solid $black;
+                        padding: 1.25em .75rem;
+                        &:hover{ 
+                            background-color: $light-red;
+                            border-color: $light-red;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // HOME PAGE
+
+    .home-page{
+
+
+        max-width: $x-lg-width;
+        margin: auto;
+
+        .welcome,
+        .shop-now{
+            display: flex;
+            padding: 10rem 0 5rem;
+            .half{
+                flex: 50%;
+                max-width: 50%;
+                display: flex;
+                justify-content:center;
+                flex-direction: column;
+
+                .btn-green{
+                    margin:0 auto 0 0;
+                }
+                h2{
+                    max-width: 15ch;
+                }
+                p{
+                    max-width: 45ch;
+                }
+            }
+        }
+
+        // WELCOME
+
+        .welcome{
+            position: relative;
+            &:after{ 
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 100%;
+                background: $light-green;
+                z-index: -1;
+                top: 0;
+                right: -40%;
+                animation:slide-left 2s ease-in-out;
+            }
+            .img-container{
+                position: relative;
+                animation: opacity-appear 2s ease-in-out;
+                min-height: 35rem;
+                img{
+                    margin: 0;
+                    transform: scaleX(-1) rotate(35deg);
+                }
+            }
+        }
+        // SHOP-NOW
+
+        .shop-now{
+            #canvas{
+                height:860px;
+                width: 500px;
+                position: relative;
+                margin: 0 0 0 auto;
+                img{
+                    position: absolute;
+                    margin: 0;
+                }
+            }
+        }
+
+
+        // LATEST RECIPES
+
+        .latest-recipes{
+
+            max-width: $lg-width;
+            margin: auto;
+
+            .header{
+                display: flex;
+                justify-content:space-between;
+
+                .latest-recipes-nav{
+                    img{
+                        margin: 0;
+                    }
+                    .prev {
+                        margin-right: 1rem;
+                        img{
+                            transform: rotate(180deg);
+                        }
+                    } 
+                    .prev, .next{
+                        opacity: 1;
+                        transition: opacity 0.25s ease-in-out;
+                        &:hover{ 
+                            opacity: 0.5;
+                        }
+                    }
+                }
+            }
+            .recipes-cards{
+
+                display: flex;
+                margin: 5rem 0;
+
+                .card{
+                    flex: 0 0 25%;
+                    margin: auto;
+                    position: relative;
+                    .img{
+                        width:7rem;
+                        height:7rem;
+                        background-size: cover;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: -1rem;
+                        z-index: 1;
+                    }
+                    .info{
+                        padding: .25rem;
+                        box-shadow: 0 0 4px 2px rgba($black , 0.2);
+                        margin-left: 6rem;
+                        padding-left: 2rem;
+                        overflow: hidden;
+                        position: relative;
+                        p{
+                            margin-bottom: .25rem;
+                        }
+                        .price{
+                            color: $dark-green;
+                            &:before{ content: '£'}
+                        }
+                    }
+                    .buy{
+                        position: absolute;
+                        right:.25rem;
+                        bottom:.25rem;
+                        img{
+                            margin: 0;
+                            position: relative;
+                            z-index: 2;
+                        }
+                        &:after{
+                            content: '';
+                            position:absolute;
+                            width: 4rem;
+                            height:4rem;
+                            border-radius: 50%;
+                            background-color: $light-red;
+                            top: -.5rem;
+                            left:-1rem;
+                            z-index:1;
+                            transform: scale(1);
+                            transition: transform .25s ease-in-out;
+                        }
+                        &:hover{ 
+                            &:after{
+                                transform: scale(1.5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

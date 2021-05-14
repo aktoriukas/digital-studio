@@ -1,0 +1,354 @@
+@charset "UTF-8";
+@import url(../fonts/stylesheet.css);
+@keyframes opacity-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.9); }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    right: 100%; }
+  100% {
+    opacity: 1;
+    right: -40%; } }
+@keyframes stop-action {
+  0%, 100% {
+    transform: rotate(0deg); }
+  10% {
+    transform: rotate(10deg); }
+  20% {
+    transform: rotate(20deg); }
+  30% {
+    transform: rotate(-10deg); }
+  40% {
+    transform: rotate(20deg); }
+  50% {
+    transform: rotate(-20deg); }
+  60% {
+    transform: rotate(-10deg); }
+  70% {
+    transform: rotate(20deg); }
+  80% {
+    transform: rotate(10deg); }
+  90% {
+    transform: rotate(-10deg); } }
+#canvas img {
+  transform: translate(-50%, -50%);
+  transform-origin: 0 0; }
+  #canvas img.salad {
+    left: 50%;
+    top: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 5; }
+  #canvas img.beetroot.i-0 {
+    top: 25%;
+    transform: scaleX(-1);
+    left: 34%; }
+  #canvas img.beetroot.i-1 {
+    top: 70%;
+    left: 45%; }
+  #canvas img.beetroot.i-2 {
+    top: 82%;
+    left: 40%;
+    transform: scaleX(-1); }
+  #canvas img.carrot.i-0 {
+    top: 10%;
+    left: 34%; }
+  #canvas img.carrot.i-1 {
+    top: 50%;
+    left: 10%; }
+  #canvas img.carrot.i-2 {
+    top: 75%;
+    left: 5%; }
+  #canvas img.cucumber.i-0 {
+    top: 45%;
+    left: 60%; }
+  #canvas img.cucumber.i-1 {
+    top: 55%;
+    left: 60%; }
+  #canvas img.cucumber.i-2 {
+    top: 80%;
+    left: 20%; }
+  #canvas img.orange.i-0 {
+    top: 35%;
+    left: 68%; }
+  #canvas img.orange.i-1 {
+    top: 65%;
+    left: 65%; }
+  #canvas img.orange.i-2 {
+    top: 90%;
+    left: 60%; }
+  #canvas img.onion.i-0 {
+    top: 45%;
+    left: 80%; }
+  #canvas img.onion.i-1 {
+    top: 75%;
+    left: 55%; }
+  #canvas img.onion.i-2 {
+    top: 63%;
+    left: 15%; }
+  #canvas img.lemon.i-0 {
+    top: 15%;
+    left: 5%; }
+  #canvas img.lemon.i-1 {
+    top: 63%;
+    left: -5%; }
+  #canvas img.lemon.i-2 {
+    top: 90%;
+    left: 10%; }
+  #canvas img:not(.salad) {
+    max-width: 14%;
+    height: auto; }
+  #canvas img:not(.salad, .beetroot) {
+    animation: stop-action 4s infinite step-end; }
+    #canvas img:not(.salad, .beetroot).carrot {
+      animation-delay: .25s; }
+    #canvas img:not(.salad, .beetroot).lemon {
+      animation-delay: .15s; }
+    #canvas img:not(.salad, .beetroot).onion {
+      animation-delay: .35s; }
+    #canvas img:not(.salad, .beetroot).cucumber {
+      animation-delay: .45s; }
+
+* {
+  font-family: "Poppins"; }
+
+ul {
+  list-style: none;
+  margin: 0; }
+  ul li {
+    margin: 0; }
+
+p {
+  font-weight: 200;
+  font-size: 1.1rem; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+.btn-green {
+  background-color: #A2DE96;
+  border: none;
+  padding: 1em 1.25rem;
+  text-transform: uppercase;
+  font-size: .8rem;
+  cursor: pointer;
+  transition: background-color .25s ease-out; }
+  .btn-green:hover {
+    background-color: #F7947A; }
+
+h1 {
+  font-size: 3.3rem; }
+
+h2 {
+  font-weight: 200;
+  font-size: 2.3rem; }
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  transition: all .5s ease-in-out; }
+
+body {
+  overflow: hidden; }
+  body #header .header-container {
+    padding: 1rem 0;
+    display: flex;
+    max-width: 1400px;
+    margin: auto; }
+    body #header .header-container .logo, body #header .header-container .user-options {
+      flex: 20%;
+      display: flex;
+      max-width: 20%; }
+    body #header .header-container .logo a {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center; }
+      body #header .header-container .logo a img {
+        width: 100%;
+        max-width: 8rem;
+        margin: 0; }
+    body #header .header-container .menu {
+      flex: 60%;
+      max-width: 60%;
+      display: flex; }
+      body #header .header-container .menu .menu-item {
+        flex: 25%;
+        max-width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        body #header .header-container .menu .menu-item h4 {
+          text-align: center;
+          margin: auto; }
+          body #header .header-container .menu .menu-item h4:hover {
+            color: #F7947A; }
+        body #header .header-container .menu .menu-item .dropdown {
+          position: relative;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          cursor: pointer; }
+          body #header .header-container .menu .menu-item .dropdown:hover .sub-menu {
+            display: initial; }
+          body #header .header-container .menu .menu-item .dropdown:hover h4 {
+            color: #F7947A; }
+          body #header .header-container .menu .menu-item .dropdown .sub-menu {
+            display: none;
+            position: absolute;
+            width: 100%;
+            background: #ffffff;
+            border-radius: .25rem;
+            padding: 1rem 2rem;
+            box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+            top: 100%;
+            z-index: 5; }
+            body #header .header-container .menu .menu-item .dropdown .sub-menu a {
+              font-weight: 400;
+              font-size: .8rem; }
+              body #header .header-container .menu .menu-item .dropdown .sub-menu a:hover {
+                color: #F7947A; }
+    body #header .header-container .user-options a {
+      flex: 50%;
+      max-width: 50%;
+      display: flex;
+      justify-content: center; }
+      body #header .header-container .user-options a h4 {
+        margin: auto; }
+        body #header .header-container .user-options a h4:hover {
+          color: #F7947A; }
+    body #header .header-container .user-options .custom-btn h4 {
+      font-size: .6rem;
+      text-transform: uppercase;
+      border: 1px solid #000000;
+      padding: 1.25em .75rem; }
+      body #header .header-container .user-options .custom-btn h4:hover {
+        background-color: #F7947A;
+        border-color: #F7947A;
+        color: #ffffff; }
+  body .home-page {
+    max-width: 1600px;
+    margin: auto; }
+    body .home-page .welcome,
+    body .home-page .shop-now {
+      display: flex;
+      padding: 10rem 0 5rem; }
+      body .home-page .welcome .half,
+      body .home-page .shop-now .half {
+        flex: 50%;
+        max-width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column; }
+        body .home-page .welcome .half .btn-green,
+        body .home-page .shop-now .half .btn-green {
+          margin: 0 auto 0 0; }
+        body .home-page .welcome .half h2,
+        body .home-page .shop-now .half h2 {
+          max-width: 15ch; }
+        body .home-page .welcome .half p,
+        body .home-page .shop-now .half p {
+          max-width: 45ch; }
+    body .home-page .welcome {
+      position: relative; }
+      body .home-page .welcome:after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: #F1F7EB;
+        z-index: -1;
+        top: 0;
+        right: -40%;
+        animation: slide-left 2s ease-in-out; }
+      body .home-page .welcome .img-container {
+        position: relative;
+        animation: opacity-appear 2s ease-in-out;
+        min-height: 35rem; }
+        body .home-page .welcome .img-container img {
+          margin: 0;
+          transform: scaleX(-1) rotate(35deg); }
+    body .home-page .shop-now #canvas {
+      height: 860px;
+      width: 500px;
+      position: relative;
+      margin: 0 0 0 auto; }
+      body .home-page .shop-now #canvas img {
+        position: absolute;
+        margin: 0; }
+    body .home-page .latest-recipes {
+      max-width: 1400px;
+      margin: auto; }
+      body .home-page .latest-recipes .header {
+        display: flex;
+        justify-content: space-between; }
+        body .home-page .latest-recipes .header .latest-recipes-nav img {
+          margin: 0; }
+        body .home-page .latest-recipes .header .latest-recipes-nav .prev {
+          margin-right: 1rem; }
+          body .home-page .latest-recipes .header .latest-recipes-nav .prev img {
+            transform: rotate(180deg); }
+        body .home-page .latest-recipes .header .latest-recipes-nav .prev, body .home-page .latest-recipes .header .latest-recipes-nav .next {
+          opacity: 1;
+          transition: opacity 0.25s ease-in-out; }
+          body .home-page .latest-recipes .header .latest-recipes-nav .prev:hover, body .home-page .latest-recipes .header .latest-recipes-nav .next:hover {
+            opacity: 0.5; }
+      body .home-page .latest-recipes .recipes-cards {
+        display: flex;
+        margin: 5rem 0; }
+        body .home-page .latest-recipes .recipes-cards .card {
+          flex: 0 0 25%;
+          margin: auto;
+          position: relative; }
+          body .home-page .latest-recipes .recipes-cards .card .img {
+            width: 7rem;
+            height: 7rem;
+            background-size: cover;
+            border-radius: 50%;
+            position: absolute;
+            top: -1rem;
+            z-index: 1; }
+          body .home-page .latest-recipes .recipes-cards .card .info {
+            padding: .25rem;
+            box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+            margin-left: 6rem;
+            padding-left: 2rem;
+            overflow: hidden;
+            position: relative; }
+            body .home-page .latest-recipes .recipes-cards .card .info p {
+              margin-bottom: .25rem; }
+            body .home-page .latest-recipes .recipes-cards .card .info .price {
+              color: #6FC1AB; }
+              body .home-page .latest-recipes .recipes-cards .card .info .price:before {
+                content: '£'; }
+          body .home-page .latest-recipes .recipes-cards .card .buy {
+            position: absolute;
+            right: .25rem;
+            bottom: .25rem; }
+            body .home-page .latest-recipes .recipes-cards .card .buy img {
+              margin: 0;
+              position: relative;
+              z-index: 2; }
+            body .home-page .latest-recipes .recipes-cards .card .buy:after {
+              content: '';
+              position: absolute;
+              width: 4rem;
+              height: 4rem;
+              border-radius: 50%;
+              background-color: #F7947A;
+              top: -.5rem;
+              left: -1rem;
+              z-index: 1;
+              transform: scale(1);
+              transition: transform .25s ease-in-out; }
+            body .home-page .latest-recipes .recipes-cards .card .buy:hover:after {
+              transform: scale(1.5); }
+
+/*# sourceMappingURL=index.css.map */

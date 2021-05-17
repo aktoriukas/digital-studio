@@ -1,7 +1,5 @@
 import * as React from "react"
 
-import plateImg from '../images/09.png'
-
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
@@ -10,16 +8,89 @@ import Canvas from "../components/canvas"
 import LatestRecipes from "../components/latestRecipes"
 import TrackVisibility from 'react-on-screen';
 
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
+
 
 const IndexPage = () => {
 
+
   const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "09.png" }) {
+  
+    query Images{
+      plateIMG: file(relativePath: {eq: "img09.png"}) {
         childImageSharp {
-          fluid(maxWidth: 2000) {
+          fluid(quality:100){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      dish1: file(relativePath: {eq: "img10.jpg"}) {
+        childImageSharp{
+          fluid(quality:60){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      dish2: file(relativePath: {eq: "img11.jpg"}) {
+        childImageSharp{
+          fluid(quality:60){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      dish3: file(relativePath: {eq: "img12.jpg"}) {
+        childImageSharp{
+          fluid(quality:60){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      ingrd1: file(relativePath: {eq: "img1.png"}) {
+        childImageSharp{
+          fluid(quality:60){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      ingrd2: file(relativePath: {eq: "img2.png"}) {
+        childImageSharp{
+          fluid(quality:10){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      ingrd3: file(relativePath: {eq: "img3.png"}) {
+        childImageSharp{
+          fluid(quality:10){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      ingrd4: file(relativePath: {eq: "img4.png"}) {
+        childImageSharp{
+          fluid(quality:10){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      ingrd5: file(relativePath: {eq: "img5.png"}) {
+        childImageSharp{
+          fluid(quality:10){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      ingrd6: file(relativePath: {eq: "img6.png"}) {
+        childImageSharp{
+          fluid(quality:10){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      ingrd7: file(relativePath: {eq: "img7.png"}) {
+        childImageSharp{
+          fluid(quality:10){
             ...GatsbyImageSharpFluid
           }
         }
@@ -27,11 +98,10 @@ const IndexPage = () => {
     }
   `)
 
-
   return(
-  
-  
     <Layout page="home-page">
+
+
       <Seo title="Home" />
   
       <div className="welcome">
@@ -45,7 +115,8 @@ const IndexPage = () => {
         <div className="half">
   
           <div className="img-container">
-            <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+            
+            <Img fluid={data.plateIMG.childImageSharp.fluid} />
           </div>
   
         </div>
@@ -56,7 +127,7 @@ const IndexPage = () => {
   
         <div className="half">
   
-          <Canvas />
+          <Canvas data={data} />
   
         </div>
   
@@ -77,7 +148,7 @@ const IndexPage = () => {
   
         <TrackVisibility>
   
-          <LatestRecipes />
+          <LatestRecipes data={data} />
   
         </TrackVisibility>
   
@@ -89,3 +160,5 @@ const IndexPage = () => {
 
 
 export default IndexPage
+
+

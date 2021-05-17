@@ -4,18 +4,15 @@ import logo from '../images/logo.svg'
 
 const Header = () => {
 
-
   return (
 
     <header id='header'>
 
       <div className='header-container'>
 
-
         <div className='logo'>
 
           <Link to="/"><img alt="site-logo" src={logo} /></Link>
-
         </div>
 
         <ul className='menu'>

@@ -1,4 +1,3 @@
-@import "../fonts/stylesheet.css";
 @import "./animation.scss";
 
 // VARIABLES
@@ -129,7 +128,25 @@ body{
                             }
                             h4{
                                 color: $light-red;
+                                &::after{
+                                    border-top: none;
+                                    border-bottom: 10px solid $light-red;
+                                }
                             }
+                        }
+                        h4{
+                            position: relative;
+                            &:after{
+                                content:'';
+                                position: absolute;
+                                right:-1.5rem;
+                                top: .25rem;
+                                width: 0;
+                                height: 0;
+                                border-left: 5px solid transparent;
+                                border-right: 5px solid transparent;
+                                border-top: 10px solid $black;
+                            }    
                         }
                         .sub-menu{
                             display: none;
@@ -208,6 +225,9 @@ body{
                 p{
                     max-width: 45ch;
                 }
+                .gatsby-image-wrapper{
+                    overflow: visible !important;
+                }
             }
         }
 
@@ -262,8 +282,14 @@ body{
             .header{
                 display: flex;
                 justify-content:space-between;
+                position: relative;
+                opacity: 0;
+                transition: opacity 0.25s ease-in-out;
 
                 .latest-recipes-nav{
+                    position: relative;
+                    right:-10rem;
+                    transition: right 0.25s ease-in-out;
                     img{
                         margin: 0;
                     }
@@ -281,22 +307,42 @@ body{
                         }
                     }
                 }
+                h2{
+                  position: relative;  
+                  left: -10rem;
+                  transition: left 0.25s ease-in-out;
+                }
+                &.visible{
+                    opacity: 1;
+                    h2{
+                        left: 0;
+                    }
+                    .latest-recipes-nav{
+                        right: 0;
+                    }
+                }
             }
             .recipes-cards{
 
                 display: flex;
                 margin: 5rem 0;
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+
+                &.visible{
+                    opacity: 1;
+                }
 
                 .card{
                     flex: 0 0 25%;
                     margin: auto;
                     position: relative;
-                    .img{
+                    .gatsby-image-wrapper{
                         width:7rem;
                         height:7rem;
                         background-size: cover;
                         border-radius: 50%;
-                        position: absolute;
+                        position: absolute !important;
                         top: -1rem;
                         z-index: 1;
                     }

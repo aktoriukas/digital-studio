@@ -38,15 +38,20 @@
 
 
 #canvas{
-    img{
+     > div{
         transform: translate(-50%, -50%);
         transform-origin: 0 0;
         &.salad{
             left:50%;
             top: 50%;
-            max-width:100%;
+            max-width:66%;
             max-height:100%;
             z-index: 5;
+
+            > img {
+                display: none !important;
+            }
+
         }
         &.beetroot{
 
@@ -60,8 +65,8 @@
                 left:45%;
             }
             &.i-2{
-                top: 82%;
-                left: 40%;
+                top: 80%;
+                left: 43%;
                 transform: scaleX(-1);
             }
         }
@@ -143,6 +148,8 @@
         &:not(.salad){
             max-width:14%;
             height:auto;
+            position: absolute !important;
+            width:9rem;
         }
         &:not(.salad, .beetroot){
             animation: stop-action 4s infinite step-end;
